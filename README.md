@@ -1,30 +1,15 @@
 # Guía para Desplegar una Aplicación ExpressJS con Docker y NGINX
 
 ## Paso 1: Instalar Docker en tu Servidor Linux
-
-1. **Actualizar los paquetes del sistema:**
-   ```bash
-   sudo apt-get update
-2. **Instalar paquetes necesarios:**
 	```bash
-	sudo apt-get install \
-	    ca-certificates \
-	    curl \
-	    gnupg \
-	    lsb-release
-3. **Añadir la clave GPG oficial de Docker:**
-	```bash
-	sudo mkdir -p /etc/apt/keyrings curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-4. **Añadir el repositorio de Docker:**
-	```bash
-	echo \ "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-5. **Actualizar la lista de paquetes e instalar Docker:**
-	```bash
-	sudo apt-get update
-	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-5. **Verificar la instalación de Docker:**
-	```bash
-	sudo docker --version
+	sudo apt update
+	sudo apt install apt-transport-https ca-certificates curl software-properties-common
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+	sudo apt update
+	sudo apt install docker-ce
+ 	#Verificar que docker esta instalado
+ 	sudo systemctl status docker
 ## Paso 2: Instalar Node.js en Ubuntu
 1. **Actualizar los paquetes del sistema:**
 	```bash
