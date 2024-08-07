@@ -1,7 +1,6 @@
 # Guía para Desplegar una Aplicación ExpressJS con Docker y NGINX
 
 ## Paso 1: Instalar Docker en tu Servidor Linux
-	```bash
 	sudo apt update
 	sudo apt install apt-transport-https ca-certificates curl software-properties-common
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
